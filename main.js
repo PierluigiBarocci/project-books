@@ -60,6 +60,11 @@ $(document).ready(function() {
                     }
                     var fullStar = '<i class="fas fa-star"></i>';
                     var emptyStar = '<i class="far fa-star"></i>';
+                    var container = $('.book-container');
+                    var classActive = '';
+                    if ((container).is(':empty')) {
+                        var classActive = 'active';
+                    }
                     var properties = {
                         'img':  currentBook.imageLinks.thumbnail,
                         'title': currentBook.title,
@@ -70,7 +75,8 @@ $(document).ready(function() {
                         'description': currentBook.description,
                         'publisher': currentBook.publisher,
                         'pageCount':  currentBook.pageCount,
-                        'categories': currentBook.categories
+                        'categories': currentBook.categories,
+                        'class': classActive
                     }
                     var html = templateFunction(properties);
                     $('.book-container').append(html);
